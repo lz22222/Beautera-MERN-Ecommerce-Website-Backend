@@ -23,13 +23,14 @@ const lineItems = products.map((product) => {
   };
 });
 
-    
+//http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}
+//http://localhost:5173/cancel
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url:"https://beautera-mern-ecommerce-website-frontend.vercel.app/success?session_id={CHECKOUT_SESSION_ID}",//http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}
-			cancel_url: "https://beautera-mern-ecommerce-website-frontend.vercel.app/cancel", //http://localhost:5173/cancel
+      success_url:"https://beautera-mern-ecommerce-website-frontend.vercel.app/success?session_id={CHECKOUT_SESSION_ID}",
+			cancel_url:"https://beautera-mern-ecommerce-website-frontend.vercel.app/cancel", 
     });
     res.json({ id: session.id });
   } catch (error) {
