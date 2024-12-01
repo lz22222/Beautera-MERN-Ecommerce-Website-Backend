@@ -17,9 +17,10 @@ app.use(express.json({ limit: '25mb' }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
+//http://localhost:5173
 app.use(
   cors({
-    origin: 'https://beautera-mern-ecommerce-website-frontend.vercel.app/',   //http://localhost:5173
+    origin: 'https://beautera-mern-ecommerce-website-frontend.vercel.app',   
     credentials: true,
   })
 );
